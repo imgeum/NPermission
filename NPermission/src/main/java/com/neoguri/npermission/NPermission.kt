@@ -17,11 +17,11 @@ import java.util.*
 
 
 class NPermission {
-    private var true_false_check = IntArray(5)
-    private var true_false_check_flag = 0
-
 
     fun isCheck(act: Activity, permissions: ArrayList<String>, permissionReturn: Int) {
+
+        val trueFalseCheck = IntArray(5)
+        var trueFalseCheckFlag = 0
 
         for (i in permissions.indices) {
             if (ContextCompat.checkSelfPermission(
@@ -30,8 +30,8 @@ class NPermission {
                 ) != PackageManager.PERMISSION_GRANTED
             ) { // this line NullPointerException
 
-                true_false_check[true_false_check_flag] = i
-                true_false_check_flag += 1
+                trueFalseCheck[trueFalseCheckFlag] = i
+                trueFalseCheckFlag += 1
 
             } else {
 

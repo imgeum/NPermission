@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button.setOnClickListener {
+            mPermission.clear()
             mPermission.add("android.permission.CAMERA")
             mPermission.add("android.permission.ACCESS_FINE_LOCATION")
             NPermission().isCheck(
