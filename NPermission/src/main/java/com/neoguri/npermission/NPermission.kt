@@ -57,8 +57,7 @@ class NPermission {
                 ) != PackageManager.PERMISSION_GRANTED
             ) { // this line NullPointerException
 
-                val name = permissions[i].split(".")
-                failNames += "\n" + name[name.size - 1]
+                failNames += "\n" + permissions[i]
 
             } else {
 

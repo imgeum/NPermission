@@ -58,7 +58,13 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "승인", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this@MainActivity, "거부", Toast.LENGTH_SHORT).show()
-                NPermission().permissionDialog(this, mPermission, "package:$packageName")
+
+                val names = ArrayList<String>()
+                for (permission in mPermission) {
+                    val name = permission.split(".")
+                    names.add(name[name.size - 1])
+                }
+                NPermission().permissionDialog(this, names, "package:$packageName")
             }
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
